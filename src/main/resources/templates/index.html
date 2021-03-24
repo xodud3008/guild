@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments.html :: head"></head>
+<body style="background: #131720;">
+    <div th:replace="fragments.html :: main-nav"></div>
+    <section class="jumbotron text-center" style="background: #131720;">
+        <div class="container">
+            <h1 style="color: white">Welcome KAKAO.GG</h1>
+            <p class="lead text-muted">
+                플레이하는 게임, 활동 지역을 설정하고 파티 / 길드를 찾아보세요. <br/>
+                최고의 팀원들을 찾을 수 있습니다.
+            <form th:action="@{/search/team}" method="get" style="width: 500px;display: inline-block;">
+                <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="찾기">
+            </form>
+            </p>
+            <p>
+                <style>
+                    .btn-primary {
+                        background-color: #434C5F;
+                        border-color: #434C5F;
+                        }
+                </style>
+                <a href="#" th:href="@{/sign-up}" class="btn btn-primary my-2">회원 가입</a> &nbsp;&nbsp;&nbsp;
+                <a href="#" th:href="@{/login}" class="btn btn-primary my-2" >로 그 인</a>
+            </p>
+        </div>
+    </section>
+    <div class="container">
+        <div class="row justify-content-center pt-3">
+            <div th:replace="fragments.html :: team-list (teamList=${teamList})"></div>
+        </div>
+    </div>
+    <div th:replace="fragments.html :: footer"></div>
+    <div th:replace="fragments.html :: date-time"></div>
+
+</body>
+</html>
